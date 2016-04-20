@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		531C078C1CBD6736008ABF4E /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 531C078B1CBD6736008ABF4E /* Entry.swift */; };
+		53B5815C1CBEB44300016B5B /* CurrentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B5815B1CBEB44300016B5B /* CurrentList.swift */; };
 		53D4E35E1CBC056000C9F683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4E35D1CBC056000C9F683 /* AppDelegate.swift */; };
-		53D4E3601CBC056000C9F683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4E35F1CBC056000C9F683 /* ViewController.swift */; };
+		53D4E3601CBC056000C9F683 /* FirstController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4E35F1CBC056000C9F683 /* FirstController.swift */; };
 		53D4E3631CBC056000C9F683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D4E3611CBC056000C9F683 /* Main.storyboard */; };
 		53D4E3651CBC056000C9F683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53D4E3641CBC056000C9F683 /* Assets.xcassets */; };
 		53D4E3681CBC056000C9F683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53D4E3661CBC056000C9F683 /* LaunchScreen.storyboard */; };
 		53D4E3731CBC056000C9F683 /* Birthday_ReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4E3721CBC056000C9F683 /* Birthday_ReminderTests.swift */; };
 		53D4E37E1CBC056000C9F683 /* Birthday_ReminderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4E37D1CBC056000C9F683 /* Birthday_ReminderUITests.swift */; };
+		53D4E38C1CBC0B6900C9F683 /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4E38B1CBC0B6900C9F683 /* DetailsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		531C078B1CBD6736008ABF4E /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		53B5815B1CBEB44300016B5B /* CurrentList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentList.swift; sourceTree = "<group>"; };
 		53D4E35A1CBC056000C9F683 /* Birthday Reminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birthday Reminder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D4E35D1CBC056000C9F683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		53D4E35F1CBC056000C9F683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		53D4E35F1CBC056000C9F683 /* FirstController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstController.swift; sourceTree = "<group>"; };
 		53D4E3621CBC056000C9F683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53D4E3641CBC056000C9F683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53D4E3671CBC056000C9F683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		53D4E3791CBC056000C9F683 /* Birthday ReminderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Birthday ReminderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53D4E37D1CBC056000C9F683 /* Birthday_ReminderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Birthday_ReminderUITests.swift; sourceTree = "<group>"; };
 		53D4E37F1CBC056000C9F683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53D4E38B1CBC0B6900C9F683 /* DetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				53D4E35D1CBC056000C9F683 /* AppDelegate.swift */,
-				53D4E35F1CBC056000C9F683 /* ViewController.swift */,
+				53D4E35F1CBC056000C9F683 /* FirstController.swift */,
+				53D4E38B1CBC0B6900C9F683 /* DetailsController.swift */,
+				531C078B1CBD6736008ABF4E /* Entry.swift */,
+				53B5815B1CBEB44300016B5B /* CurrentList.swift */,
 				53D4E3611CBC056000C9F683 /* Main.storyboard */,
 				53D4E3641CBC056000C9F683 /* Assets.xcassets */,
 				53D4E3661CBC056000C9F683 /* LaunchScreen.storyboard */,
@@ -256,8 +265,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53D4E3601CBC056000C9F683 /* ViewController.swift in Sources */,
+				531C078C1CBD6736008ABF4E /* Entry.swift in Sources */,
+				53D4E3601CBC056000C9F683 /* FirstController.swift in Sources */,
+				53D4E38C1CBC0B6900C9F683 /* DetailsController.swift in Sources */,
 				53D4E35E1CBC056000C9F683 /* AppDelegate.swift in Sources */,
+				53B5815C1CBEB44300016B5B /* CurrentList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,6 +496,7 @@
 				53D4E3841CBC056000C9F683 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53D4E3851CBC056000C9F683 /* Build configuration list for PBXNativeTarget "Birthday ReminderTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +505,7 @@
 				53D4E3871CBC056000C9F683 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53D4E3881CBC056000C9F683 /* Build configuration list for PBXNativeTarget "Birthday ReminderUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +514,7 @@
 				53D4E38A1CBC056000C9F683 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

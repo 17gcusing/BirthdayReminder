@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstController" customModule="Birthday_Reminder" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,134 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kao-W6-V7h">
+                                <rect key="frame" x="550" y="20" width="30" height="30"/>
+                                <state key="normal" title="next"/>
+                                <connections>
+                                    <segue destination="ImH-hB-LfU" kind="show" id="AE4-cZ-Xm1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="birthday reminder app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr1-l4-pRP">
+                                <rect key="frame" x="215" y="87" width="170" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jce-Z8-NOM">
+                                <rect key="frame" x="63" y="177" width="474" height="364"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="fuT-zN-s4K" detailTextLabel="xyy-8S-YF1" style="IBUITableViewCellStyleSubtitle" id="vKE-x1-OO5">
+                                        <rect key="frame" x="0.0" y="28" width="474" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vKE-x1-OO5" id="wLB-oO-bXr">
+                                            <rect key="frame" x="0.0" y="0.0" width="474" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fuT-zN-s4K">
+                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xyy-8S-YF1">
+                                                    <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="Lkt-fp-uPM"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="YDC-q4-Blh"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kao-W6-V7h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0du-Ih-Iti"/>
+                            <constraint firstItem="Jce-Z8-NOM" firstAttribute="top" secondItem="dr1-l4-pRP" secondAttribute="bottom" constant="69" id="K2n-sh-0Dl"/>
+                            <constraint firstItem="Kao-W6-V7h" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="c50-cQ-rfe"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jce-Z8-NOM" secondAttribute="bottom" constant="59" id="czn-EO-Vbv"/>
+                            <constraint firstItem="dr1-l4-pRP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="jWZ-Ep-yZ9"/>
+                            <constraint firstItem="Jce-Z8-NOM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="43" id="lAs-tF-3LV"/>
+                            <constraint firstItem="Jce-Z8-NOM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lXh-k3-Di6"/>
+                            <constraint firstItem="dr1-l4-pRP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="srm-jT-9ce"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jce-Z8-NOM" secondAttribute="trailing" constant="43" id="vGy-eX-TLf"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Jce-Z8-NOM" id="hO6-5Y-SP9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="356"/>
+        </scene>
+        <!--Details Controller-->
+        <scene sceneID="clF-ll-xbh">
+            <objects>
+                <viewController id="ImH-hB-LfU" customClass="DetailsController" customModule="Birthday_Reminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="An2-5Z-Pmn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zt3-Fm-GFQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0hx-Gy-R2t">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="notes" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-pV-iQ8">
+                                <rect key="frame" x="118" y="257" width="380" height="171"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PV-dr-QdX">
+                                <rect key="frame" x="264" y="62" width="72" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Uw-u5-wOl">
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <state key="normal" title="back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="ghc-Dm-5Xb"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="set birthday" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mqe-28-UIT">
+                                <rect key="frame" x="211" y="136" width="179" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldEditing:" destination="ImH-hB-LfU" eventType="editingDidBegin" id="4uQ-qz-oyz"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mqe-28-UIT" firstAttribute="centerX" secondItem="0hx-Gy-R2t" secondAttribute="centerX" id="2pL-tI-fEN"/>
+                            <constraint firstItem="8Uw-u5-wOl" firstAttribute="leading" secondItem="0hx-Gy-R2t" secondAttribute="leadingMargin" id="31c-59-Yva"/>
+                            <constraint firstItem="8PV-dr-QdX" firstAttribute="centerX" secondItem="0hx-Gy-R2t" secondAttribute="centerX" id="I5W-3U-Hzd"/>
+                            <constraint firstItem="8PV-dr-QdX" firstAttribute="top" secondItem="An2-5Z-Pmn" secondAttribute="bottom" constant="42" id="Ixb-b6-MBV"/>
+                            <constraint firstItem="mqe-28-UIT" firstAttribute="top" secondItem="8PV-dr-QdX" secondAttribute="bottom" constant="33" id="YaS-Qd-MK6"/>
+                            <constraint firstItem="8Uw-u5-wOl" firstAttribute="top" secondItem="An2-5Z-Pmn" secondAttribute="bottom" id="igF-rS-qUi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="birthdayTextField" destination="mqe-28-UIT" id="liU-Ji-fc3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Mx-yX-7sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969" y="355"/>
         </scene>
     </scenes>
 </document>
