@@ -19,5 +19,6 @@ class Entry {
     init(name: String, birthday: String){
         self.name = name
         self.birthday = birthday
+
     }
 }

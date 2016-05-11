@@ -12,10 +12,14 @@ class CurrentList {
     var entries = [Entry]()
     
     init() {
-        let birthdayData = ["John Smith": "January 1, 2016"]
+        let currentDate = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+        let convertedDate = dateFormatter.stringFromDate(currentDate)
+
+        let birthdayData = ["John Smith": "\(convertedDate)"]
         
         entries = birthdayData.map(
             { (name: String, birthday: String) -> Entry in return Entry(name: name, birthday: birthday)})
-        
     }
 }
