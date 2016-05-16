@@ -17,9 +17,8 @@ class CurrentList {
         dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
         let convertedDate = dateFormatter.stringFromDate(currentDate)
 
-        let birthdayData = ["John Smith": "\(convertedDate)"]
+        let entry = Entry(name: "John Smith", birthday: "\(convertedDate)", gifts: "a really cool idea", plans: "a really cool plan")
         
-        entries = birthdayData.map(
-            { (name: String, birthday: String) -> Entry in return Entry(name: name, birthday: birthday)})
+        entries.append(entry)
     }
 }

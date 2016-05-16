@@ -11,13 +11,17 @@ import Foundation
 class Entry {
     let name: String
     let birthday: String
+    let giftIdeas: String
+    let birthdayPlans: String
     
     convenience init() {
-        self.init(name: "Default name", birthday: "Default date")
+        self.init(name: "Default name", birthday: "Default date", gifts: "Default gift", plans: "Default Gift")
     }
     
-    init(name: String, birthday: String){
+    init(name: String, birthday: String, gifts: String, plans: String){
         self.name = name
         self.birthday = birthday
+        self.giftIdeas = gifts
+        self.birthdayPlans = plans
     }
 }

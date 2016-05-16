@@ -39,25 +39,20 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        var cell: UITableViewCell? = tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell?
+        if (cell != nil) {
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
+        }
         
-        cell.textLabel?.text = list.entries[indexPath.row].name
-        cell.detailTextLabel?.text = list.entries[indexPath.row].birthday
+        cell!.textLabel?.text = list.entries[indexPath.row].name
+        cell!.detailTextLabel?.text = list.entries[indexPath.row].birthday
         
-        return cell
+        return cell!
 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-//        if let destinationViewController = navigationController?.storyboard?.instantiateViewControllerWithIdentifier("showDetailsSegue") as? DetailsController {
-//            navigationController?.pushViewController(destinationViewController, animated: true)
-//        }
-        
-//        let detailsController = navigationController!.storyboard?.instantiateViewControllerWithIdentifier("showDetailsSegue")
-//        navigationController?.pushViewController(detailsController!, animated: true)
         
         self.performSegueWithIdentifier("showDetailsSegue", sender: self)
     }
@@ -76,9 +71,21 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
 //        }
 //    }
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationViewController = segue.destinationViewController as? DetailsController {
-            destinationViewController.list = list
+        if segue.identifier == "newEntrySegue" {
+            if let destinationViewController = segue.destinationViewController as? DetailsController {
+                destinationViewController.list = list
+                
+            }
+        } else {
+            if let destinationViewController = segue.destinationViewController as? DetailsController {
+                detailsIndex = tableView.indexPathForSelectedRow?.row
+//                destinationViewController.nameTextField.text = list.entries[detailsIndex!].name
+//                destinationViewController.birthdayTextField.text = list.entries[detailsIndex!].birthday
+//                destinationViewController.giftPlansTextField.text = list.entries[detailsIndex!].giftIdeas
+//                destinationViewController.plansTextField.text = list.entries[detailsIndex!].birthdayPlans
+            }
         }
     }
 }

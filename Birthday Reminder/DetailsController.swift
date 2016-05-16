@@ -45,6 +45,6 @@ class DetailsController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let firstController = segue.destinationViewController as? FirstController
-        list.entries.append(Entry(name: nameTextField.text!, birthday: birthdayTextField.text!))
+        list.entries.append(Entry(name: nameTextField.text!, birthday: birthdayTextField.text!, gifts: giftPlansTextField.text, plans: plansTextField.text))
     }
 }
