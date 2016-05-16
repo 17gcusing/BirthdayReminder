@@ -18,18 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="birthday reminder app" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr1-l4-pRP">
-                                <rect key="frame" x="215" y="87" width="170" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jce-Z8-NOM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jce-Z8-NOM">
                                 <rect key="frame" x="63" y="177" width="474" height="364"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" editingAccessoryType="disclosureIndicator" textLabel="fuT-zN-s4K" detailTextLabel="xyy-8S-YF1" style="IBUITableViewCellStyleSubtitle" id="vKE-x1-OO5">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" editingAccessoryType="disclosureIndicator" textLabel="fuT-zN-s4K" detailTextLabel="xyy-8S-YF1" style="IBUITableViewCellStyleSubtitle" id="vKE-x1-OO5">
                                         <rect key="frame" x="0.0" y="28" width="474" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vKE-x1-OO5" id="wLB-oO-bXr">
@@ -66,13 +60,19 @@
                                     <segue destination="ImH-hB-LfU" kind="show" identifier="newEntrySegue" id="d0A-2e-AYr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="birthday reminder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dr1-l4-pRP">
+                                <rect key="frame" x="151" y="82" width="298" height="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Jce-Z8-NOM" firstAttribute="top" secondItem="dr1-l4-pRP" secondAttribute="bottom" constant="69" id="K2n-sh-0Dl"/>
+                            <constraint firstItem="Jce-Z8-NOM" firstAttribute="top" secondItem="dr1-l4-pRP" secondAttribute="bottom" constant="45" id="K2n-sh-0Dl"/>
                             <constraint firstItem="3gN-U7-SnH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TGQ-0j-CLs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jce-Z8-NOM" secondAttribute="bottom" constant="59" id="czn-EO-Vbv"/>
-                            <constraint firstItem="dr1-l4-pRP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="67" id="jWZ-Ep-yZ9"/>
+                            <constraint firstItem="dr1-l4-pRP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="62" id="jWZ-Ep-yZ9"/>
                             <constraint firstItem="Jce-Z8-NOM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="43" id="lAs-tF-3LV"/>
                             <constraint firstItem="3gN-U7-SnH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lUF-4a-gvY"/>
                             <constraint firstItem="Jce-Z8-NOM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lXh-k3-Di6"/>
@@ -83,6 +83,7 @@
                     <navigationItem key="navigationItem" id="uHM-vz-iHy"/>
                     <connections>
                         <outlet property="tableView" destination="Jce-Z8-NOM" id="hO6-5Y-SP9"/>
+                        <segue destination="ImH-hB-LfU" kind="show" identifier="showDetailsSegue" id="z1b-TV-OaM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -154,7 +155,9 @@
                     </view>
                     <connections>
                         <outlet property="birthdayTextField" destination="mqe-28-UIT" id="liU-Ji-fc3"/>
+                        <outlet property="giftPlansTextField" destination="FtA-fj-U4F" id="V6n-P6-pfO"/>
                         <outlet property="nameTextField" destination="nlt-Uy-8Yj" id="3qn-Xx-aoO"/>
+                        <outlet property="plansTextField" destination="efe-Oa-biU" id="Edd-u7-8ls"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Mx-yX-7sO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,5 +185,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="gdY-2f-XtN"/>
+        <segue reference="z1b-TV-OaM"/>
     </inferredMetricsTieBreakers>
 </document>

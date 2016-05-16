@@ -11,16 +11,14 @@ import UIKit
 class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet var tableView: UITableView!
     
-    var list: CurrentList!
+    var list = CurrentList()
     var entry: Entry?
     var name = ""
-    var path: NSIndexPath?
     var detailsIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        list = CurrentList()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,14 +34,17 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
         return list.entries.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        //let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
         cell.textLabel?.text = list.entries[indexPath.row].name
         cell.detailTextLabel?.text = list.entries[indexPath.row].birthday
-        
-        name = list.entries[indexPath.row].name
-        path = indexPath
         
         return cell
 
@@ -55,8 +56,10 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
 //            navigationController?.pushViewController(destinationViewController, animated: true)
 //        }
         
-        let detailsController = navigationController!.storyboard?.instantiateViewControllerWithIdentifier("showDetailsSegue")
-        navigationController?.pushViewController(detailsController!, animated: true)
+//        let detailsController = navigationController!.storyboard?.instantiateViewControllerWithIdentifier("showDetailsSegue")
+//        navigationController?.pushViewController(detailsController!, animated: true)
+        
+        self.performSegueWithIdentifier("showDetailsSegue", sender: self)
     }
     
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

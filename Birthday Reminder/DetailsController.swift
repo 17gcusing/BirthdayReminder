@@ -19,6 +19,8 @@ class DetailsController: UIViewController {
 
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var giftPlansTextField: UITextView!
+    @IBOutlet weak var plansTextField: UITextView!
     
     @IBAction func textFieldEditing(sender: UITextField) {
         let datePickerView: UIDatePicker = UIDatePicker()
