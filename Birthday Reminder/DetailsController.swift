@@ -14,13 +14,17 @@ class DetailsController: UIViewController {
     var list: CurrentList!
     var name = ""
     var newName = ""
-    var todayDate = ""
+    var birthday = ""
+    var gifts = "gift ideas: "
+    var plans = "birthday plans: "
+    var index: Int?
 
 
     @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var giftPlansTextField: UITextView!
     @IBOutlet weak var plansTextField: UITextView!
+    @IBOutlet weak var saveButton: UIButton!
     
     @IBAction func textFieldEditing(sender: UITextField) {
         let datePickerView: UIDatePicker = UIDatePicker()
@@ -32,19 +36,30 @@ class DetailsController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.text = name
-        birthdayTextField.text = todayDate
+        birthdayTextField.text = birthday
+        giftPlansTextField.text = gifts
+        plansTextField.text = plans
     }
     
     func dateFormat(sender: UIDatePicker) {
         let dateFormatter = NSDateFormatter()
         let currentDate = NSDate()
         dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
-        todayDate = dateFormatter.stringFromDate(currentDate)
+        birthday = dateFormatter.stringFromDate(currentDate)
         birthdayTextField.text = dateFormatter.stringFromDate(sender.date)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let firstController = segue.destinationViewController as? FirstController
-        list.entries.append(Entry(name: nameTextField.text!, birthday: birthdayTextField.text!, gifts: giftPlansTextField.text, plans: plansTextField.text))
+        if segue.identifier == "saveNew" {
+            let firstController = segue.destinationViewController as? FirstController
+            list.entries.append(Entry(name: nameTextField.text!, birthday: birthdayTextField.text!, gifts: giftPlansTextField.text, plans: plansTextField.text))
+        } else if segue.identifier == "saveDetailsSegue" {
+            let firstController = segue.destinationViewController as? FirstController
+            list.entries[index!].name = nameTextField.text!
+            list.entries[index!].birthday = birthdayTextField.text!
+            list.entries[index!].giftIdeas = giftPlansTextField.text!
+            list.entries[index!].birthdayPlans = plansTextField.text!
+            firstController!.list = list
+        }
     }
 }

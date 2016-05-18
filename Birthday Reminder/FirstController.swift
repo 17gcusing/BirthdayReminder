@@ -57,34 +57,21 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
         self.performSegueWithIdentifier("showDetailsSegue", sender: self)
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "showDetailsSegue" {
-//            if let detailsController = segue.destinationViewController as? DetailsController {
-//                detailsIndex = tableView.indexPathForSelectedRow?.row
-//                detailsController.nameTextField.text = list.entries[detailsIndex!].name
-//            }
-//        }
-//        else if segue.identifier == "newEntrySegue" {
-//            if let detailsController = segue.destinationViewController as? DetailsController {
-//                detailsController.name = "name"
-//            }
-//        }
-//    }
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "newEntrySegue" {
             if let destinationViewController = segue.destinationViewController as? DetailsController {
                 destinationViewController.list = list
-                
             }
         } else {
             if let destinationViewController = segue.destinationViewController as? DetailsController {
+                // destinationViewController.saveButton.hidden = true
                 detailsIndex = tableView.indexPathForSelectedRow?.row
-//                destinationViewController.nameTextField.text = list.entries[detailsIndex!].name
-//                destinationViewController.birthdayTextField.text = list.entries[detailsIndex!].birthday
-//                destinationViewController.giftPlansTextField.text = list.entries[detailsIndex!].giftIdeas
-//                destinationViewController.plansTextField.text = list.entries[detailsIndex!].birthdayPlans
+                destinationViewController.name = list.entries[detailsIndex!].name
+                destinationViewController.birthday = list.entries[detailsIndex!].birthday
+                destinationViewController.gifts = "gift ideas: " + list.entries[detailsIndex!].giftIdeas
+                destinationViewController.plans = "birthday plans: " + list.entries[detailsIndex!].birthdayPlans
+                destinationViewController.index = detailsIndex
+                destinationViewController.list = list
             }
         }
     }

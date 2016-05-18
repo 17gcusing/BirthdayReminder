@@ -9,10 +9,10 @@
 import Foundation
 
 class Entry {
-    let name: String
-    let birthday: String
-    let giftIdeas: String
-    let birthdayPlans: String
+    var name: String
+    var birthday: String
+    var giftIdeas: String
+    var birthdayPlans: String
     
     convenience init() {
         self.init(name: "Default name", birthday: "Default date", gifts: "Default gift", plans: "Default Gift")
