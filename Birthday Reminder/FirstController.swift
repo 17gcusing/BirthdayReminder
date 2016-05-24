@@ -60,18 +60,17 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "newEntrySegue" {
             if let destinationViewController = segue.destinationViewController as? DetailsController {
-                destinationViewController.list = list
+                destinationViewController.status = true
             }
         } else {
             if let destinationViewController = segue.destinationViewController as? DetailsController {
-                // destinationViewController.saveButton.hidden = true
                 detailsIndex = tableView.indexPathForSelectedRow?.row
                 destinationViewController.name = list.entries[detailsIndex!].name
                 destinationViewController.birthday = list.entries[detailsIndex!].birthday
-                destinationViewController.gifts = "gift ideas: " + list.entries[detailsIndex!].giftIdeas
-                destinationViewController.plans = "birthday plans: " + list.entries[detailsIndex!].birthdayPlans
+                destinationViewController.gifts =  list.entries[detailsIndex!].giftIdeas
+                destinationViewController.plans = list.entries[detailsIndex!].birthdayPlans
                 destinationViewController.index = detailsIndex
-                destinationViewController.list = list
+                destinationViewController.status = false
             }
         }
     }
