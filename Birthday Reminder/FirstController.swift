@@ -12,12 +12,21 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet var tableView: UITableView!
     
     var list = CurrentList()
-    var entry: Entry?
-    var name = ""
+    var actualList: [Entry]!
+    var entries = [Entry(name: "", birthday: "", gifts: "", plans: "")]
+    var entry = Entry(name: "", birthday: "", gifts: "", plans: "")
     var detailsIndex: Int?
+    
+    func loadActualList() {
+        actualList = []
+        actualList.insert(Entry(name: "\(list.entries[0].name)", birthday: "\(list.entries[0].birthday)", gifts: "\(list.entries[0].giftIdeas)", plans: "\(list.entries[0].birthdayPlans)"), atIndex: 0)
+        actualList.appendContentsOf(entries)
+        actualList.removeAtIndex(1)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadActualList()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
@@ -31,7 +40,7 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.entries.count
+        return actualList!.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -44,12 +53,11 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
         if (cell != nil) {
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
         }
-        
-        cell!.textLabel?.text = list.entries[indexPath.row].name
-        cell!.detailTextLabel?.text = list.entries[indexPath.row].birthday
+    
+        cell!.textLabel?.text = actualList![indexPath.row].name
+        cell!.detailTextLabel?.text = actualList![indexPath.row].birthday
         
         return cell!
-
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -61,16 +69,18 @@ class FirstController: UIViewController, UITableViewDelegate, UITableViewDataSou
         if segue.identifier == "newEntrySegue" {
             if let destinationViewController = segue.destinationViewController as? DetailsController {
                 destinationViewController.status = true
+                destinationViewController.completeList = entries
             }
         } else {
             if let destinationViewController = segue.destinationViewController as? DetailsController {
                 detailsIndex = tableView.indexPathForSelectedRow?.row
-                destinationViewController.name = list.entries[detailsIndex!].name
-                destinationViewController.birthday = list.entries[detailsIndex!].birthday
-                destinationViewController.gifts =  list.entries[detailsIndex!].giftIdeas
-                destinationViewController.plans = list.entries[detailsIndex!].birthdayPlans
-                destinationViewController.index = detailsIndex
+                destinationViewController.name = actualList![detailsIndex!].name
+                destinationViewController.birthday = actualList![detailsIndex!].birthday
+                destinationViewController.gifts = actualList![detailsIndex!].giftIdeas
+                destinationViewController.plans = actualList![detailsIndex!].birthdayPlans
+                destinationViewController.firstIndex = detailsIndex!
                 destinationViewController.status = false
+                destinationViewController.completeList = entries
             }
         }
     }
